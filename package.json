@@ -1,0 +1,41 @@
+{
+  "name": "fallingsun.pm",
+  "version": "0.1.0",
+  "scripts": {},
+  "devDependencies": {
+    "gulp": "~3.6.2",
+    "gulp-autoprefixer": "0.0.7",
+    "gulp-concat-sourcemap": "~1.2.1",
+    "sliced": "0.0.5",
+    "gulp-rename": "~1.2.0",
+    "gulp-uglify": "~0.2.1",
+    "gulp-concat": "~2.2.0",
+    "gulp-sass": "~0.7.1",
+    "gulp-combine-media-queries": "0.0.1",
+    "gulp-clean-css": "~1.0.1",
+    "gulp-sourcemaps": "~0.2.1",
+    "gulp-plumber": "~0.6.1",
+    "gulp-watch": "~0.6.4",
+    "vinyl-source-stream": "~0.1.1",
+    "watchify": "~0.8.2",
+    "brfs": "~1.1.1",
+    "underscore": "~1.6.0",
+    "gulp-livereload": "~1.3.1",
+    "gulp-if": "~1.1.0",
+    "map-stream": "~0.1.0",
+    "docco": "~0.6.3",
+    "gulp-docco": "0.0.4",
+    "gulp-cache": "~0.1.3",
+    "gulp-shell": "~0.2.4",
+    "groc": "~0.6.3",
+    "event-stream": "~3.1.5",
+    "pygmentize": "~0.5.3",
+    "gulp-wrap-docco": "0.0.3",
+    "gulp-inject": "~0.4.1",
+    "gulp-compile-handlebars": "~0.2.0",
+    "gulp-ftp": "~0.2.1"
+  },
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
+}
