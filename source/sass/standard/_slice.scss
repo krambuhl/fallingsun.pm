@@ -1,0 +1,23 @@
+.slice {
+    display: table;
+    table-layout: fixed; // makes items equal sizes automatically
+    width: 100%;
+}
+
+.slice-item {
+    display: table-cell;
+    vertical-align: top;
+    width: 100%;
+}
+.slice-offset {
+    &:nth-child(1) { width: 30%; }
+    &:nth-child(2) { width: 70%; }
+}
+
+@include grid-respond(0, 7.5) {
+    .slice,
+    .slice-item {
+        display: block !important;
+        width: 100% !important;
+    }
+}

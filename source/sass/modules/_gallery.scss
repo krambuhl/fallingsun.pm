@@ -1,0 +1,21 @@
+.gallery-item {
+  &:nth-child(1) { padding-right: $spacing; }
+  &:nth-child(2) { padding-left: $spacing; }
+
+  & > img { width: 100%; }
+}
+
+.gallery-purchase {
+  text-align: right;
+}
+
+@include grid-respond(0, 7.5) {
+  .gallery-item {
+    &:nth-child(1) { padding-right: 0; }
+    &:nth-child(2) { padding-left: 0; }
+  }
+  
+  .gallery-purchase {
+    text-align: left;
+  }
+}

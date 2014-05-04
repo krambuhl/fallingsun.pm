@@ -1,0 +1,31 @@
+{
+  "artist": "Precision Machines",
+  "album": "Falling Sun",
+  "genre": ["Alternative", "Electronic", "Rock"],
+  "year": "2014",
+
+  "stores": [{
+    "name": "iTunes",
+    "url": "#/"
+  }, {
+    "name": "Google Play",
+    "url": "#/"
+  }, {
+    "name": "Amazon",
+    "url": "#/"
+  }],
+
+  "services": [{
+    "name": "Spotify",
+    "url": "#/"
+  }, {
+    "name": "rdio",
+    "url": "#/"
+  }, {
+    "name": "Beats Music",
+    "url": "#/"
+  }, {
+    "name": "Soundcloud",
+    "url": "#/"
+  }]
+}

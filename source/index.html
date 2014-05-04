@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+    <title>Falling Sun</title>
+    <meta name="description" content="" />
+    <meta name="author"      content="Precision Machines, Evan Krambuhl, IL7" />
+    <meta name="keywords"    content="Precision Machines, Falling Sun, Music, Album, Alternative, Electronic, Rock">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
+
+    {{#each stylesheets}}
+    <link href="{{.}}" rel="stylesheet" />
+    {{/each}}
+</head>
+
+<body>
+
+{{#meta}}
+<section class="screen" data-screen="meta">
+    <div class="screen-wrapper">
+        <ul class="slice">
+            <li class="slice-item gallery-item"><img src="images/cover.jpg" alt="Falling Sun album cover"></li>
+            <li class="slice-item gallery-item"><img src="images/back.jpg" alt="Falling Sun album tracklist"></li>
+        </ul>
+
+        <div class="slice">
+            <div class="slice-item text-dark-blue gallery-meta">
+                <div class="block text-large">
+                    <h1>{{artist}}</h1>
+                    <h2 class="text-highlight">{{album}}</h2>
+                </div>
+
+                <div class="block text-small">
+                    <div data-rel="genre">{{join genre " / "}}</div>
+                    <div data-rel="year">{{year}}</div>
+                </div>
+            </div>
+
+            <div class="slice-item text-dark-red gallery-purchase">
+                <div class="block text-large">
+                    <h3>Purchase on</h3>
+
+                    <div>{{#each stores}}
+                        <a href="{{url}}" class="link">{{name}}</a>{{#if @last}}{{else}}, {{/if}}
+                    {{/each}}</div>
+                </div>
+
+                <div class="block text-small">
+                    <h3>Listen on</h3>
+
+                    <div>{{#each services}}
+                        <a href="{{url}}" class="link">{{name}}</a>{{#if @last}}{{else}},{{/if}}
+                    {{/each}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{/meta}}
+
+
+{{#tracklist}}
+<section class="screen" data-screen="tracks">
+    <div class="screen-wrapper">
+        <div class="slice">
+            <div class="slice-item slice-offset">
+                <ol class="tracklist">{{#each tracks}}
+                    <li class="tracklist-item"><a href="#/"  data-index="{{@index}}">{{name}}</a></li>
+                {{/each}}</ol>
+            </div>
+
+            <div class="slice-item slice-offset slider">
+                <div class="slider-wrapper">{{#each tracks}}
+                    <div class="slider-track track" data-index="{{@index}}">
+                        <h3 class="track-title text-dark-green">{{name}}</h3>
+                        <div class="track-soundcloud">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{{soundcloud}}}&amp;color=ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_artwork=true"></iframe>
+                        </div>
+                        <div class="track-lyrics text-dark-red">{{{lyrics}}}</div>
+                    </div>
+                {{/each}}</div>
+            </div>
+        </div>
+    </div>
+</section>
+{{/tracklist}}
+
+
+{{#each scripts}}
+<script src="{{.}}"></script>
+{{/each}}
+
+</body>
+</html>
