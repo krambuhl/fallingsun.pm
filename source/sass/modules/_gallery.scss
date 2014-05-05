@@ -1,20 +1,49 @@
+.gallery {
+  position: relative;
+}
+
 .gallery-item {
   &:nth-child(1) { padding-right: $spacing; }
   &:nth-child(2) { padding-left: $spacing; }
 
-  & > img { width: 100%; }
+  & > img {
+    width: 100%;
+  }
 }
 
 .gallery-purchase {
   text-align: right;
 }
 
-@include grid-respond(0, 7.5) {
+@include grid-respond(0, 9) {
+  .gallery {
+    width: 100%;
+    padding-top: 300px;
+  }
+
   .gallery-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    max-width: 300px;
+
+    transform: translate3d(-104%, 0, 0);
+    transition-property: transform;
+
     &:nth-child(1) { padding-right: 0; }
     &:nth-child(2) { padding-left: 0; }
+
+    &.is-active {
+      transform: translate3d(0%, 0, 0);
+
+
+      & ~ .gallery-item {
+        transform: translate3d(104%, 0, 0);
+      }
+    }
   }
-  
+
   .gallery-purchase {
     text-align: left;
   }

@@ -25,8 +25,8 @@
 {{#meta}}
 <section class="screen" data-screen="meta">
     <div class="screen-wrapper">
-        <ul class="slice">
-            <li class="slice-item gallery-item"><img src="images/cover.jpg" alt="Falling Sun album cover"></li>
+        <ul class="slice gallery">
+            <li class="slice-item gallery-item is-active"><img src="images/cover.jpg" alt="Falling Sun album cover"></li>
             <li class="slice-item gallery-item"><img src="images/back.jpg" alt="Falling Sun album tracklist"></li>
         </ul>
 
@@ -67,25 +67,33 @@
 
 
 {{#tracklist}}
-<section class="screen" data-screen="tracks">
+<section class="screen" data-screen="tracklist">
     <div class="screen-wrapper">
         <div class="slice">
             <div class="slice-item slice-offset">
                 <ol class="tracklist">{{#each tracks}}
-                    <li class="tracklist-item"><a href="#/"  data-index="{{@index}}">{{name}}</a></li>
+                    {{#if @first}}
+                    <li class="tracklist-item is-active" data-index="{{@index}}"><a href="#/">{{name}}</a></li>
+                    {{else}}
+                    <li class="tracklist-item" data-index="{{@index}}"><a href="#/">{{name}}</a></li>
+                    {{/if}}
                 {{/each}}</ol>
             </div>
 
             <div class="slice-item slice-offset slider">
-                <div class="slider-wrapper">{{#each tracks}}
+                {{#each tracks}}
+                    {{#if @first}}
+                    <div class="slider-track track is-active" data-index="{{@index}}">
+                    {{else}}
                     <div class="slider-track track" data-index="{{@index}}">
-                        <h3 class="track-title text-dark-green">{{name}}</h3>
+                    {{/if}}
+                        <h3 class="track-title">{{name}}</h3>
                         <div class="track-soundcloud">
                             <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{{soundcloud}}}&amp;color=ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_artwork=true"></iframe>
                         </div>
-                        <div class="track-lyrics text-dark-red">{{{lyrics}}}</div>
+                        <div class="track-lyrics content">{{{lyrics}}}</div>
                     </div>
-                {{/each}}</div>
+                {{/each}}
             </div>
         </div>
     </div>

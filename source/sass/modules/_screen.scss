@@ -2,13 +2,14 @@
   position: relative;
   height: 100%;
   padding: 40px 10%;
+  overflow: hidden;
 
   &[data-screen="meta"] {
     background: #181518;
     color: #504f58;
   }
 
-  &[data-screen="tracks"] {
+  &[data-screen="tracklist"] {
     background: #dce0e0;
     color: #222;
   }
@@ -22,4 +23,18 @@
 
 .screen.is-floating {
   padding: 0 10%;
+}
+
+@include grid-respond(6, 9) {
+  .screen {
+    padding: 10px 10%;
+    &.is-floating { padding: 0 10%; }
+  }
+}
+
+@include grid-respond(0, 6) {
+  .screen {
+    padding: 10px 5%;
+    &.is-floating { padding: 0 5%; }
+  }
 }

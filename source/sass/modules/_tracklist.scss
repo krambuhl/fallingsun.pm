@@ -1,0 +1,35 @@
+.tracklist {
+  position: relative;
+  margin: -5px 0 $spacing-double -5px;
+  padding-right: $spacing * 3;
+
+  list-style: decimal inside;
+}
+
+.tracklist-item {
+  padding: 3px 6px;
+  margin-top: $spacing-half;
+
+  font-size: 12px;
+
+  border-radius: 2px;
+
+  & > a {
+    color: #222;
+  }
+
+  &.is-active {
+    background: #111;
+    color: #eee;
+
+    & > a {
+      color: #eee;
+    }
+  }
+}
+
+@include grid-respond(0, 9) {
+  .tracklist {
+    margin-top: $spacing;
+  }
+}

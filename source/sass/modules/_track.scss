@@ -1,0 +1,18 @@
+.track-title {
+  margin-top: 6px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.3em;
+}
+
+.track-soundcloud {
+  margin: $spacing 0 0 -3px;
+}
+
+.track-lyrics {
+  line-height: 1.8em;
+
+  p, ol, ul {
+    margin-top: $spacing;
+  }
+}
