@@ -1,14 +1,17 @@
 var $ = require('jquery');
-var View = require('./view.js');
+var Meta = require('./meta.js');
 
 $(function() {
-  var screens = $('.screen');
-  var app = {};
-
-  app.children = [];
-  screens.each(function(i) {
-    app.children.push(new View(this));
-  });
-
-  window.app = app;
+  window.app = new App("body");
 });
+
+function App(el) {
+  this.el = el;
+  this.$el = $(el);
+
+  setup(this);
+}
+
+function setup(app) {
+  app.meta = new Meta('[data-screen="meta"]');
+}

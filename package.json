@@ -36,6 +36,7 @@
     "gulp-ftp": "~0.2.1"
   },
   "dependencies": {
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "lodash": "~2.4.1"
   }
 }
