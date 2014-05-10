@@ -70,7 +70,9 @@
 <section class="screen" data-screen="tracklist">
     <div class="screen-wrapper">
         <div class="slice">
-            <div class="slice-item slice-offset">
+            <div class="slice-item slice-offset l-tracks-menu">
+                <!-- <h3 class="header-underline">Tracklist</h3> -->
+
                 <ol class="tracklist">{{#each tracks}}
                     {{#if @first}}
                     <li class="tracklist-item is-active" data-index="{{@index}}"><a href="#/">{{name}}</a></li>
@@ -80,7 +82,7 @@
                 {{/each}}</ol>
             </div>
 
-            <div class="slice-item slice-offset slider">
+            <div class="slice-item slice-offset slider"><div class="slider-wrapper">
                 {{#each tracks}}
                     {{#if @first}}
                     <div class="slider-track track is-active" data-index="{{@index}}">
@@ -94,7 +96,7 @@
                         <div class="track-lyrics content">{{{lyrics}}}</div>
                     </div>
                 {{/each}}
-            </div>
+            </div></div>
         </div>
     </div>
 </section>

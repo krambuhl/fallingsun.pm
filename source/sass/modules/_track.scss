@@ -10,9 +10,15 @@
 }
 
 .track-lyrics {
-  line-height: 1.8em;
+  line-height: 2em;
 
   p, ol, ul {
-    margin-top: $spacing;
+    margin-top: $spacing * 1.2;
+  }
+}
+
+@include grid-respond(0, 9) {
+  .track-soundcloud {
+    margin: $spacing * 1.2 0 0 0;
   }
 }

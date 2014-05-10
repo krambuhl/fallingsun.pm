@@ -1,4 +1,5 @@
 var $ = require('jquery');
+var _ = require('lodash');
 var offset = 80;
 
 function Cell(el) {
@@ -13,12 +14,19 @@ function setup(cell) {
     wrapper: cell.$el.find(".screen-wrapper")
   };
 
-  $(window).on('resize', onWindowResize.bind(null, cell)).trigger('resize');
+  window.addEventListener('resize', onWindowResize.bind(null, cell));
+  window.addEventListener('scroll', onWindowScroll.bind(null, cell));
+
+  onWindowResize(cell);
 }
 
 function onWindowResize(cell) {
   updateScreenSize(cell);
   updateWrapperSize(cell);
+}
+
+function onWindowScroll() {
+
 }
 
 function updateScreenSize(cell) {
@@ -31,12 +39,12 @@ function updateScreenSize(cell) {
 function updateWrapperSize(cell) {
   var wh = window.innerHeight;
   var ch = cell.ui.wrapper.innerHeight();
-  var isFloating = ch + offset < wh ? true : false;
+  var isFloating = ch +  offset < wh ? true : false;
 
-  cell.$el[isFloating ? 'addClass' : 'removeClass']('is-floating');
-  cell.ui.wrapper.css({
-    top: isFloating ? (wh - ch) / 2 : ''
-  });
+  cell.$el[isFloating ?  'addClass' : 'removeClass']('is-floating');
+  // cell.ui.wrapper.css({
+  //   top: isFloating ? (wh - ch) / 2 : ''
+  // });
 }
 
 

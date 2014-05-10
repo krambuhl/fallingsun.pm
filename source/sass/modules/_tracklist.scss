@@ -1,26 +1,32 @@
 .tracklist {
   position: relative;
-  margin: -5px 0 $spacing-double -5px;
-  padding-right: $spacing * 3;
+  margin: -5px 0 0 -5px;
 
   list-style: decimal inside;
 }
 
 .tracklist-item {
+  position: relative;
+  width: 100%;
   padding: 3px 6px;
   margin-top: $spacing-half;
 
   font-size: 12px;
 
   border-radius: 2px;
+  z-index: 10;
+
+  transition-property: background;
+  background-color: rgba(#111, 0);
 
   & > a {
     color: #222;
   }
 
   &.is-active {
-    background: #111;
+    background-color: rgba(#111, 1);
     color: #eee;
+    z-index: 15;
 
     & > a {
       color: #eee;
@@ -28,8 +34,77 @@
   }
 }
 
+@include grid-respond(9) {
+  .tracklist {
+    position: absolute;
+    top: 50%;
+    margin-top: (350px / -2);
+    padding-right: 40px;
+    height: 350px;
+  }
+}
+
+
 @include grid-respond(0, 9) {
   .tracklist {
-    margin-top: $spacing;
+    margin-top: 25px;
+    margin-bottom: $spacing-double;
+    border-bottom: 1px dashed rgba(#999, 0);
+
+    transition-property: margin, padding, border;
+    transition-delay: 0.5s;
+
+    &.is-expanded {
+      margin-top: 0px;
+      padding-bottom: $spacing-double;
+
+      border-bottom: 1px dashed rgba(#999, 1);
+
+
+      & > .tracklist-item {
+        opacity: 1;
+        margin-top: $spacing-fourth;
+
+        &:after {
+          opacity: 0 !important;
+        }
+      }
+    }
+
+    & > .tracklist-item {
+      &.is-active {
+        opacity: 1;
+        transition-delay: 0.5s, 0s, 0s;
+
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .tracklist-item {
+    margin-top: -25px;
+    opacity: 0;
+
+    transition-property: margin, opacity, background;
+    transition-delay: 0.5s, 0.25s, 0s;
+
+    &:after {
+      content: '\0020';
+      position: absolute;
+      top: 10px;
+      right: 9px;
+
+      opacity: 0;
+      transition-property: opacity;
+      transition-duration: 0.25s;
+
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid white;
+    }
   }
 }
