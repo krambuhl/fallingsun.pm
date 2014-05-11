@@ -13,12 +13,16 @@ function Meta(el, options) {
 
 function setup(self) {
   self.ui = {
+    wrapper: self.$el.find('.screen-wrapper'),
     gallery: self.$el.find('.gallery'),
     galleryItems: self.$el.find(".gallery-item")
   };
 
   // console.log(self, 'meta-update');
   setupGallery(self);
+  window.addEventListener('resize', updateWrapperSize.bind(null, self));
+
+  updateWrapperSize(self);
 }
 
 function setupGallery(self) {
@@ -51,6 +55,18 @@ function setupGallery(self) {
 
   setActive(0);
 }
+
+function updateWrapperSize(self) {
+  var wh = window.innerHeight;
+  var ch = self.ui.wrapper.innerHeight();
+  var isFloating = ch + (window.innerWindow * 0.1) < wh ? true : false;
+
+  self.$el[isFloating ?  'addClass' : 'removeClass']('is-floating');
+  self.ui.wrapper.css({
+    top: isFloating ? (wh - ch) / 2 : ''
+  });
+}
+
 
 
 module.exports = Meta;

@@ -18,15 +18,14 @@
 @include grid-respond(0, 9) {
   .gallery {
     width: 100%;
-    padding-top: 300px;
+    padding-top: 100%;
+    margin-bottom: 10px;
   }
 
   .gallery-item {
     position: absolute;
     top: 0;
     left: 0;
-
-    max-width: 300px;
 
     transform: translate3d(-104%, 0, 0);
     transition-property: transform;

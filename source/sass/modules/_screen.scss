@@ -1,8 +1,7 @@
 .screen {
   position: relative;
-  height: 100%;
-  padding: 10% 10%;
-  overflow: hidden;
+  // height: 100%;
+  // overflow: hidden;
 
   &[data-screen="meta"] {
     background: #181518;
@@ -13,9 +12,29 @@
     background: #dce0e0;
     color: #222;
   }
+
+  &.is-floating {
+    .screen-wrapper-padded {
+      padding: 0 10%;
+    }
+
+    .screen-wrapper {
+      position: absolute;
+    }
+  }
 }
 
 .screen-wrapper {
+  position: relative;
+  transition-property: top;
+  overflow: hidden;
+}
+
+.screen-wrapper-padded {
+  padding: 10%;
+}
+
+.screen-stretch {
   height: 100%;
 }
 
@@ -31,9 +50,8 @@
 //   }
 // }
 //
-// @include grid-respond(0, 6) {
-//   .screen {
-//     padding: 10px 5%;
-//     &.is-floating { padding: 0 5%; }
-//   }
-// }
+@include grid-respond(0, 9) {
+  .screen-wrapper {
+    position: relative;
+  }
+}

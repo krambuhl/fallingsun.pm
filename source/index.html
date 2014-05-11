@@ -24,7 +24,7 @@
 
 {{#meta}}
 <section class="screen" data-screen="meta">
-    <div class="screen-wrapper">
+    <div class="screen-wrapper screen-wrapper-padded">
         <ul class="slice gallery">
             <li class="slice-item gallery-item is-active"><img src="images/cover.jpg" alt="Falling Sun album cover"></li>
             <li class="slice-item gallery-item"><img src="images/back.jpg" alt="Falling Sun album tracklist"></li>
@@ -68,11 +68,10 @@
 
 {{#tracklist}}
 <section class="screen" data-screen="tracklist">
-    <div class="screen-wrapper">
-        <div class="slice">
-            <div class="slice-item slice-offset l-tracks-menu">
-                <!-- <h3 class="header-underline">Tracklist</h3> -->
-
+    <div class="screen-wrapper screen-stretch screen-wrapper-padded">
+        <div class="slice screen-stretch slice-layout">
+            <div class="slice-item on-mobile"></div>
+            <div class="slice-item slice-offset-small l-tracks-menu">
                 <ol class="tracklist">{{#each tracks}}
                     {{#if @first}}
                     <li class="tracklist-item is-active" data-index="{{@index}}"><a href="#/">{{name}}</a></li>
@@ -82,7 +81,7 @@
                 {{/each}}</ol>
             </div>
 
-            <div class="slice-item slice-offset slider"><div class="slider-wrapper">
+            <div class="slice-item slice-offset-large slider"><div class="slider-wrapper">
                 {{#each tracks}}
                     {{#if @first}}
                     <div class="slider-track track is-active" data-index="{{@index}}">
@@ -97,6 +96,7 @@
                     </div>
                 {{/each}}
             </div></div>
+            <div class="slice-item on-mobile"></div>
         </div>
     </div>
 </section>

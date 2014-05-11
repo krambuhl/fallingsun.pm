@@ -1,5 +1,4 @@
 .track-title {
-  margin-top: 6px;
   font-size: 24px;
   font-weight: bold;
   line-height: 1.3em;
@@ -20,5 +19,11 @@
 @include grid-respond(0, 9) {
   .track-soundcloud {
     margin: $spacing * 1.2 0 0 0;
+  }
+}
+
+@include grid-respond(0, 5) {
+  .track-lyrics {
+    font-size: 12px;
   }
 }

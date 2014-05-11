@@ -1,5 +1,4 @@
 var $ = require('jquery');
-var Hammer = require('hammerjs');
 var Cell = require('./cell.js');
 
 function Tracklist(el, options) {
@@ -17,7 +16,6 @@ function Tracklist(el, options) {
 
 function setup() {
   this.ui = setupUI(this);
-  this.tracklistHammer = Hammer(this.ui.tracklist[0]);
 
   setupListeners(this);
   setupTracks(this);
@@ -36,7 +34,7 @@ function setupUI(self) {
 
 function setupListeners(self) {
   self.ui.tracklistItems.on('click', { self: self }, onTracklistActivate);
-  self.tracklistHammer.on('tap', onTracklistToggle.bind(null, self));
+  self.ui.tracklist.on('click', onTracklistToggle.bind(null, self));
   window.addEventListener('resize', updateWrapperHeight.bind(null, self));
 }
 
@@ -47,13 +45,22 @@ function setupTracks(self) {
 function setTrackHeight(self, index) {
   var track = self.ui.tracks[index];
   track.setAttribute("data-height", track.scrollHeight);
-  self.ui.slider.css('height', track.scrollHeight);
+  // self.ui.slider.css('height', track.scrollHeight);
 
-  updateWrapperHeight(self);
+  setTimeout(function() {
+    updateWrapperHeight(self);
+  }, 500);
 }
 
 function updateWrapperHeight(self) {
-  self.ui.menu.css('height', window.innerWidth > 720 ? window.innerHeight - window.innerWidth * 0.2 : '');
+  if (window.innerWidth > 720) {
+    // self.ui.menu.css('height', window.innerHeight - window.innerWidth * 0.2);
+    self.ui.wrapper.css('top', '');//(window.innerHeight - self.ui.wrapper.innerHeight()) / 2);
+
+  } else {
+    self.ui.wrapper.css('top', '');
+    self.ui.menu.css('height', '');
+  }
 }
 
 function onTracklistActivate(ev) {
@@ -67,6 +74,10 @@ function onTracklistToggle(self) {
   } else {
     self.ui.tracklist.removeClass('is-expanded');
   }
+
+  setTimeout(function() {
+    updateWrapperHeight(self);
+  }, 500);
 }
 
 function setActiveTrack(index) {

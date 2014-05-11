@@ -72,7 +72,7 @@ function dir() { return slice(arguments).join('/'); }
 gulp.task('styles', function() {
   return gulp.src(dir(sourceDir, css, 'style.scss'))
     .pipe(sass({ style: 'expanded', sourceComments: 'map', errLogToConsole: true }))
-    .pipe(autoprefix('last 2 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4', { cascade: true }))
+    .pipe(autoprefix('last 3 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4', { cascade: true }))
     .pipe(gulp.dest(destDir))
     .pipe(refresh())
     .pipe(cmq())
