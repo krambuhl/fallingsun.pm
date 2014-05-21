@@ -1,6 +1,6 @@
 {
   "name": "fallingsun.pm",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "scripts": {},
   "devDependencies": {
     "gulp": "~3.6.2",
@@ -34,6 +34,10 @@
     "gulp-inject": "~0.4.1",
     "gulp-compile-handlebars": "~0.2.0",
     "gulp-ftp": "~0.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:krambuhl/fallingsun.pm.git"
   },
   "dependencies": {
     "jquery": "~2.1.1",
