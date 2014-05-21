@@ -1,14 +1,14 @@
 .screen {
   position: relative;
-  height: 100%;
-  padding: 10%;
+  // height: 100%;
+  // overflow: hidden;
 
   &[data-screen="meta"] {
     background: #181518;
     color: #504f58;
   }
 
-  &[data-screen="tracks"] {
+  &[data-screen="tracklist"] {
     background: #dce0e0;
     color: #222;
   }
@@ -16,5 +16,28 @@
 
 .screen-wrapper {
   position: relative;
-  height: 100%;
+  transition-property: top;
+  overflow: hidden;
+}
+
+.screen-wrapper-padded {
+  padding: 5% 10%;
+}
+
+@include grid-respond(12, 15) {
+  .screen-wrapper-padded {
+    padding: 7.5% 10%;
+  }
+}
+
+@include grid-respond(0, 12) {
+  .screen-wrapper-padded {
+    padding: 10% 10%;
+  }
+}
+
+@include grid-respond(0, 9) {
+  .screen-wrapper {
+    position: relative;
+  }
 }

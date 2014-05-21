@@ -1,14 +1,22 @@
 var $ = require('jquery');
-var View = require('./view.js');
+var fastclick = require('fastclick');
+
+var Meta = require('./meta.js');
+var Tracklist = require('./tracklist.js');
 
 $(function() {
-  var screens = $('.screen');
-  var app = {};
-
-  app.children = [];
-  screens.each(function(i) {
-    app.children.push(new View(this));
-  });
-
-  window.app = app;
+  window.app = new App("body");
 });
+
+function App(el) {
+  this.el = el;
+  this.$el = $(el);
+
+  setup(this);
+}
+
+function setup(app) {
+  app.meta = new Meta('[data-screen="meta"]');
+  app.tracklist = new Tracklist('[data-screen="tracklist"]');
+  fastclick(document.body);
+}

@@ -1,0 +1,29 @@
+.track-title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.3em;
+}
+
+.track-soundcloud {
+  margin: $spacing 0 0 -3px;
+}
+
+.track-lyrics {
+  line-height: 2em;
+
+  p, ol, ul {
+    margin-top: $spacing * 1.2;
+  }
+}
+
+@include grid-respond(0, 9) {
+  .track-soundcloud {
+    margin: $spacing * 1.2 0 0 0;
+  }
+}
+
+@include grid-respond(0, 5) {
+  .track-lyrics {
+    font-size: 12px;
+  }
+}

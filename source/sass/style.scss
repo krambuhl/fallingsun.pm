@@ -8,7 +8,9 @@
 // standard modules
 @import "standard/base";
 @import "standard/link";
+@import "standard/header";
 @import "standard/slice";
+@import "standard/content";
 
 // custom stuff
 @import "modules/screen";
@@ -17,6 +19,10 @@
 @import "modules/text";
 @import "modules/tracklist";
 @import "modules/track";
+@import "modules/slider";
+
+// layouts
+@import "layouts/tracks";
 
 
 /*# sourceMappingURL=style.css.map */

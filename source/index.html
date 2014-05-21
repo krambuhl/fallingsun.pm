@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
 <head>
-    <title>Falling Sun</title>
-    <meta name="description" content="" />
+    <title>Falling Sun by Precision Machines</title>
+    <meta name="description" content="Falling Sun is a concept rock album by Precision Machines." />
     <meta name="author"      content="Precision Machines, Evan Krambuhl, IL7" />
-    <meta name="keywords"    content="Precision Machines, Falling Sun, Music, Album, Alternative, Electronic, Rock">
+    <meta name="keywords"    content="Precision Machines, Falling Sun, Music, Concept Album, Alternative, Electronic, Rock, Portland">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -15,18 +15,39 @@
 
     <link href='http://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
 
+    <!-- mobile icon -->
+    <link rel="shortcut icon"    href="http://fallingsun.pm/images/favicon-32.jpg">
+    <link rel="apple-touch-icon" href="http://fallingsun.pm/images/favicon-128.jpg">
+
     {{#each stylesheets}}
     <link href="{{.}}" rel="stylesheet" />
     {{/each}}
+
+	<!-- Twitter Card data -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@evan_is" />
+	<meta name="twitter:title" content="Falling Sun by Precision Machines" />
+	<meta name="twitter:description" content="Falling Sun is a concept rock album by Precision Machines." />
+	<meta name="twitter:creator" content="@evan_is" />
+    <meta name="twitter:image" content="http://fallingsun.pm/images/og-cover.jpg" />
+    <meta name="twitter:domain" content="http://fallingsun.pm" />
+
+	<!-- Open Graph data -->
+	<meta property="og:title" content="Falling Sun by Precision Machines" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="http://fallingsun.pm" />
+	<meta property="og:image" content="http://fallingsun.pm/images/og-cover.jpg" />
+	<meta property="og:description" content="Falling Sun is a concept rock album by Precision Machines." />
+	<meta property="og:site_name" content="Falling Sun" />
 </head>
 
 <body>
 
 {{#meta}}
 <section class="screen" data-screen="meta">
-    <div class="screen-wrapper">
-        <ul class="slice">
-            <li class="slice-item gallery-item"><img src="images/cover.jpg" alt="Falling Sun album cover"></li>
+    <div class="screen-wrapper screen-wrapper-padded">
+        <ul class="slice gallery">
+            <li class="slice-item gallery-item is-active"><img src="images/cover.jpg" alt="Falling Sun album cover"></li>
             <li class="slice-item gallery-item"><img src="images/back.jpg" alt="Falling Sun album tracklist"></li>
         </ul>
 
@@ -48,7 +69,7 @@
                     <h3>Purchase on</h3>
 
                     <div>{{#each stores}}
-                        <a href="{{url}}" class="link">{{name}}</a>{{#if @last}}{{else}}, {{/if}}
+                        <a href="{{url}}" target="_blank" class="link">{{name}}</a>{{#if @last}}{{else}}, {{/if}}
                     {{/each}}</div>
                 </div>
 
@@ -56,7 +77,7 @@
                     <h3>Listen on</h3>
 
                     <div>{{#each services}}
-                        <a href="{{url}}" class="link">{{name}}</a>{{#if @last}}{{else}},{{/if}}
+                        <a href="{{url}}" target="_blank"  class="link">{{name}}</a>{{#if @last}}{{else}},{{/if}}
                     {{/each}}</div>
                 </div>
             </div>
@@ -67,26 +88,40 @@
 
 
 {{#tracklist}}
-<section class="screen" data-screen="tracks">
-    <div class="screen-wrapper">
-        <div class="slice">
-            <div class="slice-item slice-offset">
-                <ol class="tracklist">{{#each tracks}}
-                    <li class="tracklist-item"><a href="#/"  data-index="{{@index}}">{{name}}</a></li>
-                {{/each}}</ol>
+<section class="screen" data-screen="tracklist">
+    <div class="screen-wrapper screen-stretch screen-wrapper-padded">
+        <div class="slice screen-stretch slice-layout">
+            <div class="slice-item on-mobile"></div>
+            <div class="slice-item slice-offset-small l-tracks-menu">
+                <div class="relative">
+                    <ol class="tracklist">{{#each tracks}}
+                        {{#if @first}}
+                        <li class="tracklist-item is-active" data-index="{{@index}}"><a href="#/">{{name}}</a></li>
+                        {{else}}
+                        <li class="tracklist-item" data-index="{{@index}}"><a href="#/">{{name}}</a></li>
+                        {{/if}}
+                    {{/each}}</ol>
+                </div>
             </div>
 
-            <div class="slice-item slice-offset slider">
-                <div class="slider-wrapper">{{#each tracks}}
+            <div class="slice-item slice-offset-large slider"><div class="slider-wrapper">
+                {{#each tracks}}
+                    {{#if @first}}
+                    <div class="slider-track track is-active" data-index="{{@index}}">
+                    {{else}}
                     <div class="slider-track track" data-index="{{@index}}">
-                        <h3 class="track-title text-dark-green">{{name}}</h3>
+                    {{/if}}
+                        <h3 class="track-title">{{name}}</h3>
+                        {{#if soundcloud}}
                         <div class="track-soundcloud">
                             <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{{soundcloud}}}&amp;color=ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_artwork=true"></iframe>
                         </div>
-                        <div class="track-lyrics text-dark-red">{{{lyrics}}}</div>
+                        {{/if}}
+                        <div class="track-lyrics content">{{{lyrics}}}</div>
                     </div>
-                {{/each}}</div>
-            </div>
+                {{/each}}
+            </div></div>
+            <div class="slice-item on-mobile"></div>
         </div>
     </div>
 </section>
