@@ -1,9 +1,6 @@
 .slider {
   position: relative;
-  // height: 400px;
   transition-property: height;
-  // transition-duration: 1s;
-
 }
 
 .slider-wrapper {
@@ -20,7 +17,7 @@
   width: 100%;
 
   opacity: 0;
-  transform: translate3d(0, -200px, 0);
+  transform: translate3d(0px, -96px, 0px);
   transition-property: transform, opacity;
   transition-duration: 0.5s, 0.25s;
 
@@ -30,13 +27,13 @@
     position: relative;
 
     z-index: 5;
-    transform: translate3d(0, 0%, 0);
+    transform: translate3d(0px, 0px, 0px);
     opacity: 1;
 
     pointer-events: auto;
 
     & ~ .slider-track {
-      transform: translate3d(0, 200px, 0);
+      transform: translate3d(0px, 96px, 0px);
     }
   }
 }
@@ -45,13 +42,13 @@
   .slider-track {
     transition-duration: 0.5s, 0.75s;
     transition-delay: 0.5s, 0.25s;
-    transform: translate3d(-105%, 0, 0);
+    transform: translate3d(-105%, 0%, 0%);
 
     &.is-active {
-      transform: translate3d(0, 0%, 0);
+      transform: translate3d(0px, 0px, 0px);
 
       & ~ .slider-track {
-        transform: translate3d(105%, 0, 0);
+        transform: translate3d(105%, 0%, 0%);
       }
     }
   }

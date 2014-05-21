@@ -10,11 +10,13 @@
 
 .slice-item {
     display: table-cell;
-    vertical-align: middle;
+    vertical-align: top;
     width: 50%;
 
     &.on-mobile {
         display: table-row;
+        height: 1px;
+        width: 100%;
     }
 }
 

@@ -12,16 +12,6 @@
     background: #dce0e0;
     color: #222;
   }
-
-  &.is-floating {
-    .screen-wrapper-padded {
-      padding: 0 10%;
-    }
-
-    .screen-wrapper {
-      position: absolute;
-    }
-  }
 }
 
 .screen-wrapper {
@@ -31,25 +21,21 @@
 }
 
 .screen-wrapper-padded {
-  padding: 10%;
+  padding: 5% 10%;
 }
 
-.screen-stretch {
-  height: 100%;
+@include grid-respond(12, 15) {
+  .screen-wrapper-padded {
+    padding: 7.5% 10%;
+  }
 }
 
-//
-// .screen.is-floating {
-//   padding: 0 10%;
-// }
-//
-// @include grid-respond(6, 9) {
-//   .screen {
-//     padding: 10px 10%;
-//     &.is-floating { padding: 0 10%; }
-//   }
-// }
-//
+@include grid-respond(0, 12) {
+  .screen-wrapper-padded {
+    padding: 10% 10%;
+  }
+}
+
 @include grid-respond(0, 9) {
   .screen-wrapper {
     position: relative;

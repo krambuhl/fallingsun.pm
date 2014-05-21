@@ -46,12 +46,16 @@ function setupGallery(self) {
 
   self.galleryHammer = new Hammer(self.ui.gallery[0]);
 
-  self.galleryHammer.on('dragend', function (ev) {
+  self.galleryHammer.on('dragstart', function (ev) {
     if (ev.gesture && ev.gesture.direction) {
       if (ev.gesture.direction == "left") next();
       if (ev.gesture.direction == "right") prev();
     }
   });
+
+  self.ui.galleryItems.on('click', function() {
+    setActive($(this).index());
+  })
 
   setActive(0);
 }

@@ -1,10 +1,12 @@
 .l-tracks-menu {
   position: relative;
+  height: 380px;
 }
 
 
 @include grid-respond(0, 9) {
   .l-tracks-menu {
     padding-right: 0;
+    height: auto;
   }
 }

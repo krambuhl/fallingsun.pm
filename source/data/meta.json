@@ -6,26 +6,26 @@
 
   "stores": [{
     "name": "iTunes",
-    "url": "#/"
+    "url": "https://itunes.apple.com/us/album/falling-sun/id870541517"
   }, {
     "name": "Google Play",
-    "url": "#/"
+    "url": "https://play.google.com/store/music/album/Precision_Machines_Falling_Sun?id=Bb2e5jln6y724k6xwoom5ye65cy"
   }, {
     "name": "Amazon",
-    "url": "#/"
+    "url": "http://www.amazon.com/Falling-Sun-Precision-Machines/dp/B00K0A4R54/"
   }],
 
   "services": [{
     "name": "Spotify",
-    "url": "#/"
+    "url": "http://open.spotify.com/album/4KEORnh5Coc3nqY4hDKenR"
   }, {
     "name": "rdio",
-    "url": "#/"
-  }, {
-    "name": "Beats Music",
-    "url": "#/"
+    "url": "http://rd.io/x/QVvi_CIbDZE"
   }, {
     "name": "Soundcloud",
-    "url": "#/"
+    "url": "https://soundcloud.com/precision-machines/sets/falling-sun"
+  }, {
+    "name": "Beats Music",
+    "url": "https://listen.beatsmusic.com/albums/al103306463"
   }]
 }

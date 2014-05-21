@@ -16,7 +16,6 @@
   border-radius: 2px;
   z-index: 10;
 
-  transition-property: background;
   background-color: rgba(#111, 0);
 
   & > a {
@@ -39,7 +38,7 @@
     position: absolute;
     top: 0;
     padding-right: 40px;
-    height: 350px;
+    height: 395px;
   }
 }
 
@@ -82,8 +81,6 @@
 
     &.is-active {
       opacity: 1;
-      // transition-delay: 0.5s, 0s, 0s, 0s;
-      // transition-duration: 0.5s, 0.5s, 0.5s, 1s;
 
       &:after {
         opacity: 1;
