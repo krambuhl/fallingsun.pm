@@ -147,10 +147,10 @@ gulp.task('build', ['base'], function() {
     }
   };
 
+
   gulp.src(dir(sourceDir, 'index.html'))
     .pipe(handlebars(data, options))
     .pipe(gulp.dest(destDir));
-
 });
 
 
@@ -221,8 +221,6 @@ gulp.task('watch', function () {
 gulp.task('upload', ['compile'], function () {
   gulp.src(dir(destDir, '**/*'))
     .pipe(ftp(require('./ftp.json')));
-
-
 });
 
 // gulp.task('bump', function () {
